@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "554060110708",
+    "project_id": "absensi-labkom-umi",
+    "storage_bucket": "absensi-labkom-umi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554060110708:android:0ce8b0dc4f4d4cea7faa21",
+        "android_client_info": {
+          "package_name": "com.absensi.labkom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554060110708-i26ep6oolv9mbkk33hvfkqmevadg1c4e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.absensi.labkom",
+            "certificate_hash": "9d0a7df3e0512a690dd337713474319f77d27f4f"
+          }
+        },
+        {
+          "client_id": "554060110708-vm80qrmetnt3ee7be5lad289kpq172k2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCM7T0aNJNixNJaX8-NFALWh5U12zcaByA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554060110708-vm80qrmetnt3ee7be5lad289kpq172k2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">Absensi LabKom</string>
+
+    <string-array name="jk">
+        <item>Jenis Kelamin</item>
+        <item>Laki-Laki</item>
+        <item>Perempuan</item>
+    </string-array>
+
+    <string-array name="level">
+        <item>Pilih Level</item>
+        <item>Admin</item>
+        <item>Dosen</item>
+        <item>Mahasiswa</item>
+    </string-array>
+
+    <string-array name="semester">
+        <item>Pilih Semester</item>
+        <item>I</item>
+        <item>II</item>
+        <item>III</item>
+        <item>IV</item>
+        <item>V</item>
+        <item>VI</item>
+        <item>VII</item>
+        <item>VIII</item>
+    </string-array>
+</resources>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/actionMenuMhs"
+        android:title="menu"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_menu">
+        <menu>
+            <item
+                android:id="@+id/opUbahSandi"
+                android:icon="@drawable/ic_editsssss"
+                android:title="Ubah Sandi"/>
+
+            <item
+                android:icon="@drawable/ic_logout"
+                android:iconTint="@color/black"
+                android:id="@+id/opSignout"
+                android:title="Signout"/>
+        </menu>
+    </item>
+</menu>

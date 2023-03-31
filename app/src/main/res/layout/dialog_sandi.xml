@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/layoutDialogContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:padding="20dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutDialogSandi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_bg"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <TextView
+            android:textAlignment="center"
+            android:id="@+id/textTitleSandi"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/title_signout"
+            android:padding="10dp"
+            android:text="UBAH SANDI"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
+        <LinearLayout
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:id="@+id/txtTanyaSingOut"
+            android:orientation="vertical"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginTop="5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textTitleSandi">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputSandiLama"
+                style="@style/parent"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/SandiLama"
+                    style="@style/modEditText"
+                    android:hint="Kata Sandi Lama"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputSandiBru"
+                style="@style/parent"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="#C1BFBF"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/SandiBru"
+                    style="@style/modEditText"
+                    android:hint="Kata Sandi Baru"
+                    android:inputType="textPassword"
+                    android:maxLines="1"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_marginBottom="20dp"
+                android:id="@+id/textInputSandiKonfir"
+                style="@style/parent"
+                app:errorEnabled="true"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="#C1BFBF"
+                android:layout_marginTop="10dp">
+                <EditText
+                    android:id="@+id/SandiKonfirmasi"
+                    style="@style/modEditText"
+                    android:inputType="textPassword"
+                    android:hint="Konfirmasi Sandi Baru"
+                    android:maxLines="1"
+                    android:textSize="16sp" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:padding="@dimen/_14sdp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@id/layoutDialogSandi"
+        app:layout_constraintTop_toBottomOf="@id/layoutDialogSandi">
+
+        <Button
+            android:layout_marginRight="@dimen/_14sdp"
+            android:id="@+id/btnSimpanSandi"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_signout_bg1"
+            android:textColor="#ffffffff"
+            android:text="Ya"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/btnBatalSandi"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <Button
+            android:id="@+id/btnBatalSandi"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_signout_bg"
+            android:textColor="#ffffffff"
+            android:text="Batal"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btnSimpanSandi"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Selamat Datang"
+            android:textSize="@dimen/_20ssp"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/viewNamaDosen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dosen"
+            android:textSize="@dimen/_16ssp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/menuMhs"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                app:cardCornerRadius="15dp">
+
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#2196F3"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_alignParentStart="true"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="VERIFIKASI\nABSEN MAHASISWA"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/dosmhs"/>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/menuSlip"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp">
+
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#8BC34A"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_alignParentStart="true"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="VERIFIKASI\nSLIP PEMBAYARAN"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/dosslip"/>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/menuJadwal"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp">
+
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F44336"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_alignParentStart="true"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="JADWAL KULIAH"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/dosjadwal"/>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/menuLogout"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp">
+
+                <RelativeLayout
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#FF9800"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_alignParentStart="true"
+                        android:textAlignment="center"
+                        android:gravity="center"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_14ssp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="LOGOUT"/>
+
+                    <ImageView
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_alignParentEnd="true"
+                        android:src="@drawable/doslogout"/>
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

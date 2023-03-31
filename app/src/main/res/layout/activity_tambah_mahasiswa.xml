@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/hijau"
+    android:focusableInTouchMode="true"
+    tools:context=".UI.tambahData.TambahMahasiswa">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/whiteTextColor"
+                android:text="TAMBAH DATA MAHASISWA"/>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:cardBackgroundColor="@color/whiteTextColor"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal">
+
+                        <RelativeLayout
+                            android:background="@drawable/bg_foto"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:background="@drawable/ic_cam"
+                                android:layout_gravity="center_vertical"
+                                android:layout_width="@dimen/_100sdp"
+                                android:layout_height="@dimen/_100sdp"
+                                android:scaleType="fitXY"
+                                android:id="@+id/Tambah_FotoMhs"/>
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputNIM"
+                        style="@style/parent"
+                        app:errorEnabled="true"
+                        app:counterMaxLength="11"
+                        android:layout_marginTop="10dp">
+                        <EditText
+                            android:id="@+id/Tambah_NIM"
+                            style="@style/modEditText"
+                            android:hint="No Induk Mahasiswa"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputNamaMhs"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin"
+                        app:passwordToggleTint="@color/hijau">
+                        <EditText
+                            android:id="@+id/Tambah_NamaMhs"
+                            style="@style/modEditText"
+                            android:hint="Nama Mahasiswa"
+                            android:textSize="16sp"
+                            android:inputType="text"
+                            android:maxLines="2" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputJKmhs"
+                        style="@style/parent"
+                        android:layout_marginTop="25dp"
+                        app:passwordToggleTint="@color/hijau">
+
+                        <Spinner
+                            android:id="@+id/Tambah_JKmhs"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/edit"
+                            android:entries="@array/jk"
+                            android:minHeight="35dp"
+                            android:textAlignment="textStart" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <RelativeLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputTglMhs"
+                            style="@style/parent"
+                            android:layout_marginEnd="@dimen/_30sdp"
+                            android:layout_alignRight="@id/btnAddTglMhs"
+                            android:layout_marginRight="0dp">
+
+                            <EditText
+                                android:id="@+id/Tambah_TglMhs"
+                                style="@style/modEditText"
+                                android:layout_alignRight="@id/btnAddTglMhs"
+                                android:hint="Tanggal Lahir"
+                                android:inputType="none"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:maxLines="1"
+                                android:textSize="16sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            android:layout_marginTop="15dp"
+                            android:id="@+id/btnAddTglMhs"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="35dp"
+                            android:background="@drawable/ic_calendar"
+                            android:layout_height="35dp"/>
+
+                    </RelativeLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputHPmhs"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+                        <EditText
+                            android:id="@+id/Tambah_HPmhs"
+                            style="@style/modEditText"
+                            android:hint="No HP"
+                            android:inputType="phone"
+                            android:maxLines="1"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputAlamatMhs"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+                        <EditText
+                            android:id="@+id/Tambah_AlamatMhs"
+                            style="@style/modEditText"
+                            android:hint="Alamat"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:padding="@dimen/_14sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@id/textInputAlamatMhs"
+                        app:layout_constraintTop_toBottomOf="@id/textInputAlamatMhs">
+
+                        <Button
+                            android:id="@+id/btnSimpan_TambahMhs"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:text="SIMPAN"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/button1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/btnKeluarAddMhs"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <Button
+                            android:onClick="keluarTambahMhs"
+                            android:id="@+id/btnKeluarAddMhs"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:text="KELUAR"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/button2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/btnSimpan_TambahMhs"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

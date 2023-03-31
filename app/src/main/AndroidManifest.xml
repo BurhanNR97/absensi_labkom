@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:enableOnBackInvokedCallback="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.NoActionBar"
+        tools:targetApi="31">
+        <activity
+            android:name=".UI.detailSlip"
+            android:exported="false" />
+        <activity
+            android:name=".UI.RekapSlip"
+            android:exported="false" />
+        <activity
+            android:name=".UI.detailAbsensi"
+            android:exported="false" />
+        <activity
+            android:name=".UI.RekapAbsen"
+            android:exported="false" />
+        <activity
+            android:name=".UI.QRScanner"
+            android:exported="false" />
+        <activity
+            android:name=".UI.ubahData.UbahAkun"
+            android:exported="false" />
+        <activity
+            android:name=".UI.tambahData.TambahAkun"
+            android:exported="false" />
+        <activity
+            android:name=".UI.absensiku"
+            android:exported="false" />
+        <activity
+            android:name=".UI.absen"
+            android:exported="false" />
+        <activity
+            android:name=".UI.KonfirMhs"
+            android:exported="false" />
+        <activity
+            android:name=".UI.JadwalDosen"
+            android:exported="false" />
+        <activity
+            android:name=".CaptureCamera"
+            android:exported="false" />
+        <activity
+            android:name=".UI.pembayaran"
+            android:exported="false" />
+        <activity
+            android:name=".UI.KonfirSlip"
+            android:exported="false" />
+        <activity
+            android:name=".UI.UploadSlip"
+            android:exported="false" />
+        <activity
+            android:name=".UI.JadwalKuliah"
+            android:exported="false" />
+        <activity
+            android:name=".UI.Kuliahku"
+            android:exported="false" />
+        <activity
+            android:name=".UI.SlipBayar"
+            android:exported="false" />
+        <activity
+            android:name=".UI.scanQR"
+            android:exported="false" />
+        <activity
+            android:name=".UI.ubahData.UbahJadwal"
+            android:exported="false" />
+        <activity
+            android:name=".UI.tambahData.TambahJadwal"
+            android:exported="false" />
+        <activity
+            android:name=".UI.DataJadwal"
+            android:exported="false" />
+        <activity
+            android:name=".UI.DataAkunPengguna"
+            android:exported="false" />
+        <activity
+            android:name=".UI.ubahData.UbahMahasiswa"
+            android:exported="false" />
+        <activity
+            android:name=".UI.tambahData.TambahMahasiswa"
+            android:exported="false" />
+        <activity
+            android:name=".UI.DataMahasiswa"
+            android:exported="false" />
+        <activity
+            android:name=".UI.ubahData.UbahDosen"
+            android:exported="false" />
+        <activity
+            android:name=".UI.tambahData.TambahDosen"
+            android:exported="false" />
+        <activity
+            android:name=".UI.DataDosen"
+            android:exported="false" />
+        <activity
+            android:name=".UI.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".UI.MainDosen"
+            android:exported="true" />
+        <activity
+            android:name=".UI.MainAdmin"
+            android:exported="true" />
+        <activity
+            android:name=".UI.SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".UI.MainActivity"
+            android:exported="true" />
+    </application>
+
+</manifest>

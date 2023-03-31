@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:background="@color/hijau"
+    android:focusableInTouchMode="true"
+    tools:context=".UI.ubahData.UbahJadwal">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textAlignment="center"
+                style="@style/viewParent.headerText.NoMode"
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/whiteTextColor"
+                android:text="UBAH DATA\nJADWAL KULIAH"/>
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:cardBackgroundColor="@color/whiteTextColor"
+                app:cardCornerRadius="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="15dp"
+                    android:orientation="vertical">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/parent"
+                        app:passwordToggleTint="@color/hijau">
+                        <EditText
+                            android:id="@+id/Edit_NamaMatkul"
+                            style="@style/modEditText"
+                            android:hint="Nama Mata Kuliah"
+                            android:textSize="16sp"
+                            android:inputType="text"
+                            android:maxLines="2" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Spinner
+                        android:layout_marginTop="15dp"
+                        android:id="@+id/Edit_NIPjadwal"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:background="@drawable/edit"
+                        android:minHeight="35dp"
+                        android:textAlignment="textStart"/>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/clK"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="20dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@id/Edit_NIPjadwal"
+                        app:layout_constraintTop_toBottomOf="@id/Edit_NIPjadwal">
+
+                        <Spinner
+                            android:entries="@array/semester"
+                            android:id="@+id/Edit_Semester"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:background="@drawable/edit"
+                            android:minHeight="35dp"
+                            android:textAlignment="textStart"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/textInputSKS"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginLeft="15dp"
+                            android:id="@+id/textInputSKS"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/Edit_Semester">
+
+                            <EditText
+                                android:id="@+id/Edit_SKS"
+                                style="@style/modEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="SKS"
+                                android:maxLength="1"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:textSize="16sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <RelativeLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            style="@style/parent"
+                            android:layout_marginEnd="@dimen/_30sdp"
+                            android:layout_alignRight="@id/btnEditTglJadwal"
+                            android:layout_marginRight="0dp">
+
+                            <EditText
+                                android:id="@+id/Edit_TglKuliah"
+                                style="@style/modEditText"
+                                android:layout_alignRight="@id/btnEditTglJadwal"
+                                android:hint="Tanggal Kuliah"
+                                android:inputType="none"
+                                android:clickable="false"
+                                android:focusable="false"
+                                android:maxLines="1"
+                                android:textSize="16sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <Button
+                            android:layout_marginTop="15dp"
+                            android:id="@+id/btnEditTglJadwal"
+                            android:layout_alignParentRight="true"
+                            android:layout_width="35dp"
+                            android:background="@drawable/ic_calendar"
+                            android:layout_height="35dp"/>
+
+                    </RelativeLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@id/clK"
+                        app:layout_constraintTop_toBottomOf="@id/clK">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/textInputWaktuMulai"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/textInputWaktuSelesai"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <EditText
+                                android:id="@+id/Edit_WaktuMulai"
+                                style="@style/modEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="Jam Mulai"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:maxLines="1"
+                                android:textSize="16sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:layout_marginLeft="15dp"
+                            android:id="@+id/textInputWaktuSelesai"
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/textInputWaktuMulai">
+
+                            <EditText
+                                android:id="@+id/Edit_WaktuSelesai"
+                                style="@style/modEditText"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="Jam Selesai"
+                                android:inputType="none"
+                                android:focusable="false"
+                                android:maxLines="1"
+                                android:textSize="16sp" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/textInputRuangan"
+                        style="@style/parent"
+                        android:layout_marginTop="@dimen/loginViewsMargin">
+                        <EditText
+                            android:id="@+id/Edit_Ruang"
+                            style="@style/modEditText"
+                            android:hint="Ruang Kuliah"
+                            android:inputType="text"
+                            android:maxLines="1"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:padding="@dimen/_14sdp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="@id/textInputAlamatMhs"
+                        app:layout_constraintTop_toBottomOf="@id/textInputAlamatMhs">
+
+                        <Button
+                            android:id="@+id/btnSimpan_UbahJadwal"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:text="SIMPAN"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/button1"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/btnKeluarEditJadwal"
+                            app:layout_constraintStart_toStartOf="parent"/>
+
+                        <Button
+                            android:id="@+id/btnKeluarEditJadwal"
+                            android:layout_width="100dp"
+                            android:layout_height="40dp"
+                            android:layout_gravity="center"
+                            android:text="KELUAR"
+                            android:textColor="#ffffff"
+                            android:background="@drawable/button2"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/btnSimpan_UbahJadwal"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </ScrollView>
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/layout_atribut"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tb_slipNo"
+            android:layout_width="50dp"
+            android:textAlignment="center"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:text="No"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:background="@drawable/border_right_bottom"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/tb_slipNIM"
+            android:textAlignment="center"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:text="NIM"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:background="@drawable/border_right_bottom"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/tb_slipNama"
+            android:textAlignment="center"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:text="Nama Mahasiswa"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:background="@drawable/border_right_bottom"
+            android:textColor="#000"/>
+
+        <TextView
+            android:id="@+id/tb_slipKet"
+            android:textAlignment="center"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="5dp"
+            android:text="Keterangan"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:background="@drawable/border_right_bottom"
+            android:textColor="#000"/>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".UI.QRScanner">
+
+    <com.budiyev.android.codescanner.CodeScannerView
+        android:id="@+id/scanner_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:frameCornersSize="32dp"
+        app:frameCornersRadius="8dp"
+        app:frameCornersCapRounded="true"
+        app:frameVerticalBias="0.15">
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/scanner_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/scanner_teks"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="5"
+                android:paddingStart="16dp"
+                android:paddingTop="32dp"
+                android:paddingEnd="16dp"
+                android:textColor="@color/white"
+                android:textSize="18sp"/>
+
+            <Button
+                android:text="SELESAI"
+                android:background="@drawable/btn_signout_bg2"
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:id="@+id/scanner_btn"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"/>
+        </LinearLayout>
+
+    </com.budiyev.android.codescanner.CodeScannerView>
+
+</LinearLayout>
