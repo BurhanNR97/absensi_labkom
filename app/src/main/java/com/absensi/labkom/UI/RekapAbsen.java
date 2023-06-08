@@ -128,7 +128,21 @@ public class RekapAbsen extends AppCompatActivity implements AdapterView.OnItemC
         db.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                intent.putExtra("nip", snapshot.child("nip").getValue().toString());
+                String iNIP = snapshot.child("nip").getValue().toString();
+                intent.putExtra("matkul", snapshot.child("nama").getValue().toString());
+
+                DatabaseReference rff = FirebaseDatabase.getInstance().getReference("dosen");
+                rff.child(iNIP).addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot1) {
+                        intent.putExtra("dosen", snapshot1.child("nama").getValue().toString());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
             }
 
             @Override
