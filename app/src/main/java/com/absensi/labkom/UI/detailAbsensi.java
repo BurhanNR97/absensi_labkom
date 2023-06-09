@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -45,6 +46,8 @@ public class detailAbsensi extends AppCompatActivity {
     TextView txtKode, txtNama, txtMatkul;
     private static int REQ_MEDIA = 10;
     String inKode, inMatkul, inDosen;
+    private static Boolean isPermissionGranted = false;
+    private static int RC_PERMIS = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -152,12 +155,27 @@ public class detailAbsensi extends AppCompatActivity {
             }
 
             document.finishPage(page);
+            File file = null;
             String namaFIle = "RekapAbsensi-" + txtKode.getText().toString().trim() + ".pdf";
-            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), namaFIle);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                ActivityCompat.requestPermissions(detailAbsensi.this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+                file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), namaFIle);
+            } else
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, RC_PERMIS);
+                } else {
+                    file = new File(Environment.getExternalStorageDirectory(), namaFIle);
+                }
+            }
 
             try {
-                document.writeTo(new FileOutputStream(file));
-                Toast.makeText(this, "Berkas berhasil disimpan\n"+ file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+                if (file != null) {
+                    document.writeTo(new FileOutputStream(file));
+                    Toast.makeText(this, "Berkas berhasil disimpan\n"+ file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

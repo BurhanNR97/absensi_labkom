@@ -22,6 +22,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -44,7 +45,8 @@ import java.util.List;
 public class detailSlip extends AppCompatActivity {
     TextView txtKode, txtNama, txtMatkul;
     ArrayList<modelSlip> list = new ArrayList<>();
-
+    private static Boolean isPermissionGranted = false;
+    private static int RC_PERMIS = 10;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -95,10 +97,6 @@ public class detailSlip extends AppCompatActivity {
         int id = item.getItemId();
 
         if (id == R.id.print_slip) {
-            ActivityCompat.requestPermissions(detailSlip.this,
-                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                            Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
-
             PdfDocument document = new PdfDocument();
 
             PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(620, 900, 1).create();
@@ -151,12 +149,27 @@ public class detailSlip extends AppCompatActivity {
             }
 
             document.finishPage(page);
+            File file = null;
             String namaFIle = "RekapPembayaran-" + txtKode.getText().toString().trim() + ".pdf";
-            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), namaFIle);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                ActivityCompat.requestPermissions(detailSlip.this,
+                        new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                                Manifest.permission.READ_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+                file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOCUMENTS), namaFIle);
+            } else
+            if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.Q) {
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, RC_PERMIS);
+                } else {
+                    file = new File(Environment.getExternalStorageDirectory(), namaFIle);
+                }
+            }
 
             try {
-                document.writeTo(new FileOutputStream(file));
-                Toast.makeText(this, "Berkas berhasil disimpan\n"+ file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+                if (file != null) {
+                    document.writeTo(new FileOutputStream(file));
+                    Toast.makeText(this, "Berkas berhasil disimpan\n"+ file.getAbsolutePath(), Toast.LENGTH_SHORT).show();
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
