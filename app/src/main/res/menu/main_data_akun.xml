@@ -2,10 +2,34 @@
 <menu
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
         android:icon="@drawable/ic_adds"
         android:id="@+id/add_dataakun"
         android:orderInCategory="1"
         app:showAsAction="always"
         android:title="TAMBAH"/>
+
+    <item
+        android:icon="@drawable/ic_filter"
+        android:id="@+id/filter_dataakun"
+        android:orderInCategory="2"
+        app:showAsAction="always"
+        android:title="FILTER">
+
+        <menu>
+            <item
+                android:id="@+id/sort_id"
+                android:title="Sort by ID"/>
+            <item
+                android:id="@+id/sort_user"
+                android:title="Sort by Username"/>
+            <item
+                android:id="@+id/sort_pass"
+                android:title="Sort by Password"/>
+            <item
+                android:id="@+id/sort_level"
+                android:title="Sort by Level"/>
+        </menu>
+    </item>
 </menu>
