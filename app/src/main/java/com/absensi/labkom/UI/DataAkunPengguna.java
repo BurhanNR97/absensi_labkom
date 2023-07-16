@@ -36,6 +36,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class DataAkunPengguna extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private TextView teks;
@@ -43,6 +45,7 @@ public class DataAkunPengguna extends AppCompatActivity implements AdapterView.O
     private DatabaseReference dbUser;
     private adpUsers adapters;
     private ArrayList<modelUser> listUser;
+    private ArrayList<modelUser> listUsers;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -73,18 +76,22 @@ public class DataAkunPengguna extends AppCompatActivity implements AdapterView.O
     protected void onStart() {
         super.onStart();
 
-        dataakun();
+        dataakun("id");
     }
 
-    private void dataakun() {
+    private void dataakun(String s) {
         listUser = new ArrayList<>();
-        dbUser.addValueEventListener(new ValueEventListener() {
+        listUsers = new ArrayList<>();
+        dbUser.orderByChild(s).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 listUser.clear();
+                listUsers.clear();
+
                 for (DataSnapshot ds : snapshot.getChildren()) {
                     modelUser model = ds.getValue(modelUser.class);
                     listUser.add(model);
+                    listUsers.add(model);
                 }
 
                 if (listUser.isEmpty()) {
@@ -104,6 +111,37 @@ public class DataAkunPengguna extends AppCompatActivity implements AdapterView.O
 
             }
         });
+    }
+
+    private void sortir(int pos) {
+
+        switch (pos) {
+            case 1 :
+
+            case 2 :
+                Collections.sort(listUser, new Comparator<modelUser>() {
+                    @Override
+                    public int compare(modelUser t0, modelUser t1) {
+                        return t0.getUsername().compareToIgnoreCase(t1.getUsername());
+                    }
+                });
+            case 3 :
+                Collections.sort(listUser, new Comparator<modelUser>() {
+                    @Override
+                    public int compare(modelUser t0, modelUser t1) {
+                        return Integer.compare(Integer.parseInt(t0.getPassword()), Integer.parseInt(t1.getPassword()));
+                    }
+                });
+            case 4 :
+                Collections.sort(listUser, new Comparator<modelUser>() {
+                    @Override
+                    public int compare(modelUser t0, modelUser t1) {
+                        return t0.getLevel().compareToIgnoreCase(t1.getLevel());
+                    }
+                });
+        }
+        adapters.setUsersList(listUser);
+        layout.setAdapter(adapters);
     }
 
     @Override
@@ -129,12 +167,27 @@ public class DataAkunPengguna extends AppCompatActivity implements AdapterView.O
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
 
-        if (id == R.id.add_dataakun) {
-            Intent intent = new Intent(DataAkunPengguna.this, TambahAkun.class);
-            intent.putExtra("id", getIntent().getStringExtra("id"));
-            startActivity(intent);
-            finish();
+        switch (id) {
+            case R.id.add_dataakun:
+                Intent intent = new Intent(DataAkunPengguna.this, TambahAkun.class);
+                intent.putExtra("id", getIntent().getStringExtra("id"));
+                startActivity(intent);
+                finish();
+                break;
+            case R.id.sort_id:
+                dataakun("id");
+                break;
+            case R.id.sort_user:
+                dataakun("username");
+                break;
+            case R.id.sort_pass:
+                dataakun("password");
+                break;
+            case R.id.sort_level:
+                dataakun("level");
+                break;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -174,7 +227,7 @@ public class DataAkunPengguna extends AppCompatActivity implements AdapterView.O
                 dbUser.child(id).addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.child("level").getValue().toString().equals("admin")) {
+                        if (!snapshot.child("username").getValue().toString().equals("admin")) {
                             vv.findViewById(R.id.btnYaHapus).setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
@@ -183,8 +236,8 @@ public class DataAkunPengguna extends AppCompatActivity implements AdapterView.O
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
                                                 Toast.makeText(DataAkunPengguna.this, "Data berhasil dihapus", Toast.LENGTH_SHORT).show();
-                                                dialog.cancel();
                                                 alertDialog.cancel();
+                                                dialog.cancel();
                                             }
                                         }
                                     });
@@ -192,8 +245,8 @@ public class DataAkunPengguna extends AppCompatActivity implements AdapterView.O
                             });
                         } else {
                             Toast.makeText(DataAkunPengguna.this, "Tidak dapat menghapus data", Toast.LENGTH_SHORT).show();
-                            dialog.cancel();
                             alertDialog.cancel();
+                            dialog.cancel();
                         }
                     }
 
